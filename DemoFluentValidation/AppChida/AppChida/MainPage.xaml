@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppChida.MainPage">
+
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 Padding="10,35,10,0">
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="StartAndExpand"
+                     Spacing="20">
+            <Label HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   FontSize="30"
+                   Text="Bienvenido a la App Chida" />
+
+            <Label HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   FontSize="20"
+                   Text="Inicio de sesión" />
+
+            <Frame HasShadow="True"
+                   Padding="10"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="CenterAndExpand">
+                <StackLayout Spacing="15"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                    <Label Text="Correo electrónico"
+                           TextColor="Gray"
+                           FontSize="15" />
+
+                    <Entry Keyboard="Email"
+                           FontSize="15"
+                           Placeholder="usuario@correo.com"
+                           TextColor="Black"
+                           x:Name="txtEmail" />
+
+                    <Label Text="Contraseña"
+                           TextColor="Gray"
+                           FontSize="15" />
+
+                    <Entry Keyboard="Default"
+                           FontSize="15"
+                           Placeholder="contraseña"
+                           IsPassword="True"
+                           TextColor="Black"
+                           x:Name="txtContra" />
+
+                    <Button Text="Entrar"
+                            FontSize="16"
+                            Clicked="Button_Clicked"/>
+                </StackLayout>
+            </Frame>
+
+            <Button Text="¿Nuevo usuario? Regístrate"
+                    FontSize="18"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="Button_Clicked_1"/>
+
+            <CollectionView HorizontalOptions="FillAndExpand"
+                            x:Name="cllValidaciones">
+                <CollectionView.Header>
+                    <Label Text="Datos de entrada incorrectos:"
+                               FontSize="16"
+                               TextColor="Black" />
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     Spacing="10">
+                            <Label TextColor="OrangeRed"
+                                   FontSize="13"
+                                   Text="{Binding ErrorMessage}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
