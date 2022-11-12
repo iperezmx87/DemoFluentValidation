@@ -18,6 +18,13 @@ namespace DemoFluentValidation.Model
         public bool Recomendado { get; set; }
         public string? NombreRecomendado { get; set; }
         public int? MedioRecomendado { get; set; }
+
+        public Direccion? DireccionUsuario { get; set; }
+    }
+
+    public class Direccion
+    {
+        public string  Calle { get; set; }
     }
 
     public enum Sexo

@@ -109,6 +109,10 @@
                                     <Label TextColor="OrangeRed"
                                    FontSize="13"
                                    Text="{Binding ErrorMessage}" />
+
+                                    <Label TextColor="SaddleBrown"
+                                   FontSize="13"
+                                   Text="{Binding ErrorCode}" />
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
