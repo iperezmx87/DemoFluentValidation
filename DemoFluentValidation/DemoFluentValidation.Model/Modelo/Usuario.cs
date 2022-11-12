@@ -11,13 +11,13 @@ namespace DemoFluentValidation.Model
 
         public int? Edad { get; set; }
 
-        public Sexo? Genero { get; set; }
+        public int? Genero { get; set; }
 
         public string? Telefono { get; set; }
 
         public bool Recomendado { get; set; }
         public string? NombreRecomendado { get; set; }
-        public Recomendacion? MedioRecomendado { get; set; }
+        public int? MedioRecomendado { get; set; }
     }
 
     public enum Sexo
@@ -34,4 +34,3 @@ namespace DemoFluentValidation.Model
 
     }
 }
-

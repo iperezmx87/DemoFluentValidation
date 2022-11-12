@@ -4,7 +4,117 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppChida.RegisterPage">
     <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 Padding="10,10,10,0">
+                <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="StartAndExpand"
+                     Spacing="20">
+                    <Label HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   FontSize="25"
+                   Text="Registro de nuevo usuario" />
+                    <Frame HasShadow="True"
+                           Padding="10"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand">
+                        <StackLayout Margin="10"
+                                     Spacing="10">
+                            <Entry MaxLength="50"
+                               FontSize="15"
+                               TextColor="Black"
+                               x:Name="txtNombre"
+                               Placeholder="Nombre"/>
 
+                            <Entry MaxLength="50"
+                               FontSize="15"
+                               TextColor="Black"
+                               x:Name="txtApellido"
+                               Placeholder="Apellido"/>
+
+                            <Entry MaxLength="50"
+                               FontSize="15"
+                               TextColor="Black"
+                               x:Name="txtCorreo"
+                               Keyboard="Email"
+                               Placeholder="Correo"/>
+
+                            <Entry MaxLength="50"
+                               FontSize="15"
+                               TextColor="Black"
+                               x:Name="txtContrasena"
+                               IsPassword="True"
+                               Placeholder="Contraseña"/>
+
+                            <Entry MaxLength="50"
+                               FontSize="15"
+                               TextColor="Black"
+                               x:Name="txtEdad"
+                               Keyboard="Numeric"
+                               Placeholder="Edad"/>
+
+                            <Entry MaxLength="50"
+                               FontSize="12"
+                               TextColor="Black"
+                               x:Name="txtGenero"
+                               Keyboard="Numeric"
+                               Placeholder="Género (1 masculino, 2 femenino, 3 indefinido)"/>
+
+                            <Entry MaxLength="50"
+                               FontSize="15"
+                               TextColor="Black"
+                               x:Name="txtTelefono"
+                               Keyboard="Telephone"
+                               Placeholder="Teléfono"/>
+
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="10">
+                                <CheckBox x:Name="chkRecomendado" Color="Black" />
+                                <Label Text="¿Te recomendaron en algún medio?"
+                                       FontSize="12"
+                                       VerticalOptions="Center"/>
+                            </StackLayout>
+
+                            <Entry MaxLength="50"
+                               FontSize="12"
+                               TextColor="Black"
+                               x:Name="txtMedioRecomendado"
+                               Keyboard="Numeric"
+                               Placeholder="Medio recomendado (1 Redes, 2 buscador)"/>
+
+                            <Entry MaxLength="50"
+                               FontSize="13"
+                               TextColor="Black"
+                               x:Name="txtNombreRecomendado"
+                               Placeholder="Nombre de medio recomendado"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Button Text="Registrar"
+                            FontSize="16"
+                            Clicked="Button_Clicked"/>
+
+                    <CollectionView HorizontalOptions="FillAndExpand"
+                            x:Name="cllValidaciones">
+                        <CollectionView.Header>
+                            <Label Text="Datos de entrada incorrectos:"
+                               FontSize="16"
+                               TextColor="Black" />
+                        </CollectionView.Header>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout HorizontalOptions="FillAndExpand"
+                                     Spacing="10">
+                                    <Label TextColor="OrangeRed"
+                                   FontSize="13"
+                                   Text="{Binding ErrorMessage}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
-

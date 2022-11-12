@@ -30,9 +30,11 @@ namespace AppChida
             cllValidaciones.IsVisible = false;
             lstErroresValidacion.Clear();
 
-            Login modeloLogin = new Login();
-            modeloLogin.Correo = txtEmail.Text;
-            modeloLogin.Contrasena = txtContra.Text;
+            Login modeloLogin = new Login()
+            {
+                Contrasena = txtContra.Text,
+                Correo = txtEmail.Text
+            };
 
             // validando ando
             ValidationResult resLogin = await validadorLogin.ValidateAsync(modeloLogin);
@@ -42,6 +44,10 @@ namespace AppChida
                 lstErroresValidacion = new ObservableCollection<ValidationFailure>(resLogin.Errors);
                 cllValidaciones.ItemsSource = lstErroresValidacion;
                 cllValidaciones.IsVisible = true;
+            }
+            else
+            {
+                await DisplayAlert("Demo FluentValidation", "Todo en orden", "Aceptar");
             }
         }
 

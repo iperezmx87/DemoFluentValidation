@@ -13,18 +13,17 @@ namespace DemoFluentValidation.Model.Validadores
 
             // el correo debe ser obligatorio y ser una direccion de correo
             RuleFor(login => login.Correo)
-                //.Cascade(CascadeMode.Stop)
-                .Empty().WithMessage("{PropertyName} es requerido.")
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty().WithMessage("{PropertyName} es requerido.")
                 .NotNull().WithMessage("{PropertyName} es requerido.")
                 .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible)
                 .WithMessage("El correo debe ser uno válido");
 
             RuleFor(login => login.Contrasena)
-                //.Cascade(CascadeMode.Stop)
-                .Empty().WithMessage("{PropertyName} es requerido.")
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty().WithMessage("{PropertyName} es requerido.")
                 .NotNull().WithMessage("{PropertyName} es requerido.")
                 .MinimumLength(8).WithMessage("El tamaño mínimo de {PropertyName} es {MinLength}.");
-
 
             When(login => login.Contrasena != null, () =>
             {
@@ -32,6 +31,7 @@ namespace DemoFluentValidation.Model.Validadores
                 // normalmente contra una xpresion regular
                 // personalizar la contraseña
                 RuleFor(login => login.Contrasena)
+                .Cascade(CascadeMode.Stop)
                 .Must(contra =>
                 {
                     // una mayuscula minimo y un caracter especial !@#$%&/()
